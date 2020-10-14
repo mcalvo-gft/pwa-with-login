@@ -1,13 +1,13 @@
-import React from 'react';
-import logo from './logo.svg';
-import Login from './pages/login/login';
+import React, { ReactElement } from 'react';
+import Welcome from './pages/welcome/welcome';
 
-import styles from 'styles/app.scss';
+// import styles from 'styles/app.scss';
 
-function App() {
+function App(): ReactElement {
   return (
     <div className="App">
-      <Login />
+      {/* <Login /> */}
+      <Welcome />
     </div>
   );
 }
