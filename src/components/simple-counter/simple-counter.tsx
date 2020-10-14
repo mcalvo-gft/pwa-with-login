@@ -1,8 +1,6 @@
 import React, { ReactElement } from 'react';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
 
-import styles from './login.module.scss';
+import styles from './simple-counter.module.scss';
 
 interface SimpleCounterProps {
   label: string;
@@ -10,10 +8,12 @@ interface SimpleCounterProps {
 }
 
 const SimpleCounter = ({ label, value }: SimpleCounterProps): ReactElement => {
+  const formattedValue = value.toString().padStart(2, '0');
+
   return (
-    <div>
-      <div>{value}</div>
-      <div>{label}</div>
+    <div className={styles['simple-counter']}>
+      <div className={styles['simple-counter__value']}>{formattedValue}</div>
+      <div className={styles['simple-counter__label']}>{label}</div>
     </div>
   );
 };

@@ -2,6 +2,7 @@ import React, { lazy, ReactElement, Suspense } from 'react';
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 import Login from './pages/login/login';
 import NotFound from './pages/not-found/not-found';
+import 'fontsource-roboto';
 
 // import styles from 'styles/app.scss';
 

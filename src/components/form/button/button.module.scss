@@ -1,0 +1,15 @@
+@import '~styles/colors';
+
+.overwrite.root {
+  background-color: $blue;
+  padding: 10px 30px;
+  &:hover {
+    background-color: $blue-dark;
+  }
+}
+.overwrite .label {
+  text-transform: none;
+  font-size: 0.8em;
+  font-weight: bold;
+  color: $white;
+}
