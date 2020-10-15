@@ -12,10 +12,11 @@ const LastAccessCounter = ({ lastAccessTime }: LastAccessCounterProps): ReactEle
   const [diff, setDiff] = useState(differenceFromNow(lastAccessTime));
 
   useEffect(() => {
-    setInterval(() => {
+    const timer = setInterval(() => {
       const diff = differenceFromNow(lastAccessTime);
       setDiff(diff);
     }, 1e3);
+    return () => clearInterval(timer);
   }, []);
 
   const { days, hours, minutes, seconds } = timeToJSON(diff);

@@ -1,20 +1,16 @@
-import React, { ReactElement, useEffect, useState } from 'react';
+import React, { ReactElement, useContext } from 'react';
 import LastAccessCounter from 'components/last-access-counter/last-access-counter';
 import * as AuthenticationService from 'services/authentication.service';
 import Button from 'components/form/button/button';
+import { AuthContext } from 'context/auth.context';
 
 import styles from './welcome.module.scss';
 
 const Welcome = (): ReactElement => {
-  const [lastAccess, setLastAccess] = useState<Date | null>(null);
+  const authContext = useContext(AuthContext);
+  const lastAccess = authContext && authContext.user ? authContext.user.lastSignInTime : null;
 
   const handleLogout = () => AuthenticationService.logout();
-
-  useEffect(() => {
-    AuthenticationService.getLastAccess().then(
-      (time) => time instanceof Date && setLastAccess(time)
-    );
-  }, []);
 
   return (
     <div className={styles.welcome}>

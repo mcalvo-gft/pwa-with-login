@@ -1,27 +1,29 @@
-import React, { ChangeEvent, ReactElement, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { ChangeEvent, ReactElement, useContext, useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import Button from 'components/form/button/button';
 import InputText from 'components/form/input-text/input-text';
 import { ValidatorForm } from 'react-material-ui-form-validator';
 import * as AuthenticationService from 'services/authentication.service';
+import { AuthContext } from 'context/auth.context';
+import lockIcon from 'assets/icons/lock.svg';
 
 import styles from './login.module.scss';
 
 const Login = (): ReactElement => {
+  const authContext = useContext(AuthContext);
   const [formData, setFormData] = useState({ email: '', password: '' });
-  const history = useHistory();
-  const gotoWelcome = (): void => history.push('welcome');
 
   const handleChange = (name: string) => (event: ChangeEvent<HTMLInputElement>) => {
     setFormData((formData) => ({ ...formData, [name]: event.target.value }));
   };
 
   const handleSubmit = () => {
-    AuthenticationService.login().then(gotoWelcome);
+    AuthenticationService.login(formData.email, formData.password);
   };
 
-  return (
+  return authContext?.isLoggedIn === false ? (
     <div className={styles.login}>
+      <img src={lockIcon} />
       <ValidatorForm onSubmit={handleSubmit} noValidate>
         <InputText
           required
@@ -52,6 +54,8 @@ const Login = (): ReactElement => {
         </div>
       </ValidatorForm>
     </div>
+  ) : (
+    <Redirect to={{ pathname: 'welcome' }} />
   );
 };
 
