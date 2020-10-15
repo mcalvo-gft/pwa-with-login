@@ -4,7 +4,7 @@ export const login = (email: string, password: string): Promise<void | Error> =>
   return firebase.login(email, password);
 };
 
-export const logout = (): Promise<void | Error> => {
+export const logout = (): void => {
   return firebase.logout();
 };
 

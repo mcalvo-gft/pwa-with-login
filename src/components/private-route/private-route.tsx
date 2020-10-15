@@ -10,6 +10,7 @@ const PrivateRoute = ({ component: Component, ...other }: RouteProps): ReactElem
       {...other}
       render={(props) =>
         authContext && authContext.isLoggedIn ? (
+          // @ts-ignore
           <Component {...props} />
         ) : (
           <Redirect to={{ pathname: 'login' }} />
