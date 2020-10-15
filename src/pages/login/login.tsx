@@ -54,7 +54,7 @@ const Login = (): ReactElement => {
         />
         {error && <ErrorMessage error={error} />}
         <div className={styles.login__actions}>
-          <Button variant="contained" color="primary" type="submit">
+          <Button fullWidth={true} type="submit">
             Log in
           </Button>
         </div>
