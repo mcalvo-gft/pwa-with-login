@@ -1,16 +1,27 @@
 @import '~styles/colors';
 
 .welcome {
-  margin-top: 20px;
   &__header {
-    padding: 60px 0;
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__avatar.overwrite {
+    margin: 30px;
+    width: 70px;
+    height: 70px;
   }
   &__title {
     color: $black;
     text-align: center;
-    margin-bottom: 10px;
+    line-height: 1.5em;
     font-size: 2em;
     font-weight: bold;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   &__message {
     margin: 0;

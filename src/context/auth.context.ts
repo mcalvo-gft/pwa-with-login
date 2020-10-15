@@ -1,7 +1,5 @@
 import { createContext } from 'react';
-export interface User {
-  lastSignInTime: Date;
-}
+import { User } from 'types/types';
 
 export interface AuthContextType {
   isLoggedIn: boolean;

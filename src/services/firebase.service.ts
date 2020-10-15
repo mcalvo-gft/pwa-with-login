@@ -13,7 +13,6 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
-// let authenticated = false;
 
 export const login = (email: string, password: string): Promise<firebase.auth.UserCredential> => {
   return auth.signInWithEmailAndPassword(email, password);
@@ -22,3 +21,5 @@ export const login = (email: string, password: string): Promise<firebase.auth.Us
 export const logout = (): void => void auth.signOut();
 
 export const onAuthStateChanged = auth.onAuthStateChanged.bind(auth);
+
+export type UserCredential = firebase.auth.UserCredential;

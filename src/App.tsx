@@ -4,14 +4,15 @@ import Login from './pages/login/login';
 import NotFound from './pages/not-found/not-found';
 import * as AuthenticationService from 'services/authentication.service';
 import PrivateRoute from 'components/private-route/private-route';
-import { AuthContext, User } from 'context/auth.context';
+import { AuthContext } from 'context/auth.context';
+import { User } from 'types/types';
 import 'fontsource-roboto';
 
 import 'styles/app.scss';
 
 const Welcome = lazy(() => import('./pages/welcome/welcome'));
 const WelcomeAsync = () => (
-  <Suspense fallback="loading...">
+  <Suspense fallback="">
     <Welcome />
   </Suspense>
 );
@@ -21,12 +22,8 @@ function App(): ReactElement {
   const [authCheck, setAuthCheck] = useState(false);
 
   useEffect(() => {
-    AuthenticationService.onAuthStateChanged((user) => {
-      if (user !== null) {
-        setUser({ lastSignInTime: new Date(user?.metadata.lastSignInTime as string) });
-      } else {
-        setUser(null);
-      }
+    AuthenticationService.onAuthStateChanged((user: User | null) => {
+      setUser(user);
       setAuthCheck(true);
     });
   }, []);
