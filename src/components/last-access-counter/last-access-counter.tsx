@@ -13,7 +13,7 @@ const LastAccessCounter = ({ lastAccessTime }: LastAccessCounterProps): ReactEle
 
   useEffect(() => {
     const timer = setInterval(() => {
-      const diff = differenceFromNow(lastAccessTime);
+      const diff = Math.max(differenceFromNow(lastAccessTime), 0);
       setDiff(diff);
     }, 1e3);
     return () => clearInterval(timer);
