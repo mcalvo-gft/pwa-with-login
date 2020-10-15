@@ -16,9 +16,7 @@ const auth = firebase.auth();
 // let authenticated = false;
 
 export const login = (email: string, password: string): Promise<firebase.auth.UserCredential> => {
-  return auth.signInWithEmailAndPassword(email, password).catch((e) => {
-    return Promise.reject(new Error(e.message));
-  });
+  return auth.signInWithEmailAndPassword(email, password);
 };
 
 export const logout = (): void => void auth.signOut();

@@ -1,7 +1,12 @@
 import * as firebase from 'services/firebase.service';
 
 export const login = (email: string, password: string): Promise<void | Error> => {
-  return firebase.login(email, password).then(() => Promise.resolve());
+  return firebase
+    .login(email, password)
+    .then(() => Promise.resolve())
+    .catch((e: Error) => {
+      return Promise.reject(new Error(e.message));
+    });
 };
 
 export const logout = (): void => {
