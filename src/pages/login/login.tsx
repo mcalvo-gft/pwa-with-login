@@ -20,15 +20,17 @@ const Login = (): ReactElement => {
   };
 
   const handleSubmit = () => {
+    setError(null);
     AuthenticationService.login(formData.email, formData.password).catch((e) => setError(e));
   };
 
   return authContext?.isLoggedIn === false ? (
     <div className={styles.login}>
-      <img src={lockIcon} />
-      <ValidatorForm onSubmit={handleSubmit} noValidate>
+      <img src={lockIcon} className={styles['login__lock-icon']} />
+      <ValidatorForm onSubmit={handleSubmit} noValidate autoComplete="off">
         <InputText
           required
+          className={`${styles['login__email']} ${styles.overwrite}`}
           label="Email"
           name="email"
           autoComplete="email"
@@ -40,6 +42,7 @@ const Login = (): ReactElement => {
         />
         <InputText
           required
+          className={`${styles['login__password']} ${styles.overwrite}`}
           label="Password"
           name="password"
           autoComplete="current-password"

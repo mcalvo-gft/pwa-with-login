@@ -4,6 +4,14 @@
   width: 300px;
   margin: 0 auto;
   margin-top: 80px;
+  &__lock-icon {
+    margin-bottom: 30px;
+    height: 70px;
+  }
+  &__email.overwrite,
+  &__password.overwrite {
+    margin-bottom: 8px;
+  }
   &__actions {
     margin-top: 20px;
     display: flex;
