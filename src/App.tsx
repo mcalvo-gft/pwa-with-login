@@ -2,10 +2,10 @@ import React, { lazy, ReactElement, Suspense, useEffect, useState } from 'react'
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 import Login from './pages/login/login';
 import NotFound from './pages/not-found/not-found';
-import 'fontsource-roboto';
 import * as AuthenticationService from 'services/authentication.service';
 import PrivateRoute from 'components/private-route/private-route';
 import { AuthContext, User } from 'context/auth.context';
+import 'fontsource-roboto';
 
 import 'styles/app.scss';
 

@@ -2,6 +2,8 @@ html {
   height: 100%;
 }
 body {
+  box-sizing: border-box;
+  padding: 80px 10px;
   height: 100%;
   font-family: 'Roboto', 'Helvetica', 'Arial';
 }
