@@ -1,5 +1,5 @@
 export const login = (): Promise<void | Error> => {
-  return new Promise((resolve) => resolve());
+  return new Promise((resolve) => resolve(123));
 };
 
 export const logout = (): Promise<void | Error> => {
