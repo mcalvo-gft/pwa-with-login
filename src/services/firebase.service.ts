@@ -15,11 +15,11 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 // let authenticated = false;
 
-export const login = (email: string, password: string): Promise<void> =>
-  auth
-    .signInWithEmailAndPassword(email, password)
-    .then((x) => console.log(x))
-    .catch((e) => console.error(e));
+export const login = (email: string, password: string): Promise<firebase.auth.UserCredential> => {
+  return auth.signInWithEmailAndPassword(email, password).catch((e) => {
+    return Promise.reject(new Error(e.message));
+  });
+};
 
 export const logout = (): void => void auth.signOut();
 
