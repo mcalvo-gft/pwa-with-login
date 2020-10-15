@@ -8,7 +8,9 @@
   &__title {
     color: $black;
     text-align: center;
-    margin-bottom: 0;
+    margin-bottom: 10px;
+    font-size: 2em;
+    font-weight: bold;
   }
   &__message {
     margin: 0;

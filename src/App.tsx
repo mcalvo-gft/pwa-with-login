@@ -4,7 +4,7 @@ import Login from './pages/login/login';
 import NotFound from './pages/not-found/not-found';
 import 'fontsource-roboto';
 
-// import styles from 'styles/app.scss';
+import 'styles/app.scss';
 
 const Welcome = lazy(() => import('./pages/welcome/welcome'));
 const WelcomeAsync = () => (
